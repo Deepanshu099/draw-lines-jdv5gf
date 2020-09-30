@@ -1,0 +1,45 @@
+<h1>Resize observer</h1>
+
+<p>
+  This resize directive is useful to observe resizes on an element.
+</p>
+
+<p>Resize count: {{ count }}</p>
+
+<div class="box box-1"
+    appResize
+    (resize)="onResize()"
+    [class.expanded]="expanded"
+    >
+  (make screen smaller than this box) 
+</div>
+
+<button (click)="toggleHeight()">... or toggle box height</button>
+
+<h1>Draw lines</h1>
+
+<p>A simple component to draw lines between elements. Utilizes resize observer.</p>
+
+<draw-lines [lines]="lines">
+	<section>
+		<div class="box" lineAnchor="1">Lorem</div>
+		<div class="box" lineAnchor="4">Aap</div>
+	</section>
+	<section>
+		<div class="box" lineAnchor="2">Ipsum</div>
+		<div class="box" lineAnchor="5">{{ content }}</div>
+	</section>
+	<section>
+		<div class="box" lineAnchor="3">Dolor</div>
+		<div class="box" lineAnchor="6">
+      {{ content }}
+    </div>
+	</section>
+</draw-lines>
+
+<button (click)="add()">Add another line</button>
+<button (click)="clearLines()">Clear lines</button>
+<button (click)="toggleContent()">Toggle content height</button>
+
+<pre>{{ lines | json }}</pre>
+
